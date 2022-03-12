@@ -1,0 +1,27 @@
+{{ block title }}Instructions for Guessing Game{{ endblock }}
+{{ block content }}
+
+    <p>
+    In this task, you have to pick two numbers (named X and Y) between 0 and 100 (both inclusive).
+    Your payment for this task depends on how close these two numbers (X and Y) are to the so called ”target number”.
+    The closer your numbers are to the target number, the higher your payment.
+    Caclulation of the target number depends on your picked numbers.
+    It is calculated as the mean of both numbers (X and Y), multiplied by two thirds: target number = 2 3  X + Y 2
+    Your payment Your Payment depends on absolute distance of your numbers to the target number.
+    For each number, if the number is exactly equal to the target number, you receive 1e.
+    Should you not hit the target number exactly, some money will be deducted.
+    35 For each absolute unit distance of your numbers to the target number, 0.05e will be deducted:
+    payment for X = 1e − 0.05e |X − target number| payment for Y = 1e − 0.05e |Y − target number|
+    Because only the absolute difference between your number and the target number is used to calculate your payment
+    (indicated with by the vertical bars “|”), it does not matter whether you deviate upwards or downwards - only the absolute difference counts.
+    Please note that your payment can not become negative.
+    Should your payment according to the above formula become negative, you will receive 0e instead.
+    You have four minutes time to pick both numbers.
+    After you have chosen your numbers, please confirm your choice by clicking the red “continue” button.
+    Otherwise, your answer will not be recorded.
+    </p>
+
+
+    {{ next_button }}
+
+{{ endblock }}

@@ -1,0 +1,14 @@
+{{ block title }}Please answer the following Questions before continuing.{{ endblock }}
+{{ block content }}
+
+{{ if player.treatmentvideo == 1 }}
+
+    {{ formfield 'internet' }}
+
+{{ else }}
+    {{ formfield 'internet' }}
+{{ endif }}
+
+    {{ next_button }}
+
+{{ endblock }}
