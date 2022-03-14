@@ -45,21 +45,10 @@ class Player(BasePlayer):
         widget = widgets.RadioSelectHorizontal
     )
 
-
     cognitiveload = models.IntegerField(
-        label = "How mentally demanding was the Instruction? Just answer quickly and intuitively.",
-        widget = widgets.RadioSelect,
-        choices =[-4, -3, -2, -1, 0, 1, 2, 3, 4]
+        label = "How mentally demanding was the Instruction? Just answer quickly and intuitively."
     )
 
-    testslider = models.IntegerField(
-        label="Does he look like a slider?",
-        widget=widgets.RadioSelect,
-        choices=[-3, -2, -1, 0, 1, 2, 3]
-    )
-
-    price = models.FloatField()
-    number = models.IntegerField()
 
 # FUNCTIONS
 def creating_session(subsession):
