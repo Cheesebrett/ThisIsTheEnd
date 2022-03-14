@@ -4,7 +4,7 @@ import itertools
 
 
 doc = """
-a.k.a. Ke123456ynesian beauty contest.
+a.k.a. Keynesian beauty contest.
 Players all guess a number; whoever guesses closest to
 2/3 of the average wins.
 See https://en.wikipedia.org/wiki/Guess_2/3_of_the_average
@@ -47,9 +47,9 @@ class Player(BasePlayer):
 
 
     cognitiveload = models.IntegerField(
-        label="How mentally demanding was the Instruction? Just answer quickly and intuitively.",
-        widget=widgets.RadioSelectHorizontal,
-        choices=[1, 'super easy to understand', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'extremely difficult to understand']
+        label = "How mentally demanding was the Instruction? Just answer quickly and intuitively.",
+        widget = widgets.RadioSelectHorizontal,
+        choices =[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     )
 
 
@@ -82,7 +82,15 @@ class Instruction1PGGText(Page):
 
 class QuestionInstruction(Page):
     form_model = 'player'
-    form_fields = ['internet']
+
+    @staticmethod
+    def get_form_fields(player):
+        if player.treatmentvideo:
+            return ['internet', 'cognitiveload']
+        else:
+            return ['cognitiveload']
+
+
 
 
 class Guess(Page):

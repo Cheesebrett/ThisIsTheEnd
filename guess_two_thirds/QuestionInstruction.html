@@ -3,10 +3,12 @@
 
 {{ if player.treatmentvideo == 1 }}
 
-    {{ formfield 'internet' }}
+    {{ formfields }}
 
 {{ else }}
-    {{ formfield 'internet' }}
+
+    {{ formfield "cognitiveload" }}
+
 {{ endif }}
 
     {{ next_button }}
