@@ -1,10 +1,53 @@
-{{ block title }}Your Guess{{ endblock }}
+{{ block title }}
+    Please pick your two numbers!
+{{ endblock }}
 {{ block content }}
 
+    <style>
+        .mgslider-wrapper {
+            border-spacing: 10px;
+        }
+        .mgslider-limit {
+            width: 10%;
+            min-width: 75px;
+            height: 40px;
+            margin: 100px;
+            text-align: center;
+            background: #eee;
+            border: 1px solid #888;
+        }
+        .mgslider-limit, .mgslider-value {
+            font-variant-numeric: tabular-nums;
+        }
+        .mgslider-before {
+            height: 16px;
+            width: 100%;
+            background: #1e5bff;
+        }
+    </style>
+
+    {{ formfield_errors 'guessx' }}
+    {{ formfield_errors 'guessy' }}
+    <p>Just click the blue bars to reveal the slider.</p>
+
+    <div id="sliders_here"></div>
+
+    <script src="{{ static 'mgslider.js' }}"></script>
+
+    <script>
+        $(document).ready(function (event) {
+            slider1 = new mgslider("guessx", 0, 100, 1);
+            slider1.yourvalue = "Your first number";
+            slider1.print(document.getElementById("sliders_here"));
 
 
-    {{ formfields }}
+            slider2 = new mgslider("guessy", 0, 100, 1);
+            slider2.yourvalue = "Your second number";
+            slider2.print(document.getElementById("sliders_here"));
+
+        });
+    </script>
+
     {{ next_button }}
-
 
 {{ endblock }}

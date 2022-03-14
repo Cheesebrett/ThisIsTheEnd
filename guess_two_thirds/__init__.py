@@ -36,9 +36,9 @@ class Player(BasePlayer):
     )
 
     internet = models.IntegerField(
-        label = "Was your internet connection stable enough to watch the video without trouble?",
+        label = "Was your internet connection stable enough to watch the video or did you have other trouble?",
         choices=[
-            [1, 'No problems'],
+            [1, 'No problems watching the video'],
             [2, 'Some problems'],
             [3, 'Could not really watch'],
         ],
@@ -48,10 +48,18 @@ class Player(BasePlayer):
 
     cognitiveload = models.IntegerField(
         label = "How mentally demanding was the Instruction? Just answer quickly and intuitively.",
-        widget = widgets.RadioSelectHorizontal,
-        choices =[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        widget = widgets.RadioSelect,
+        choices =[-4, -3, -2, -1, 0, 1, 2, 3, 4]
     )
 
+    testslider = models.IntegerField(
+        label="Does he look like a slider?",
+        widget=widgets.RadioSelect,
+        choices=[-3, -2, -1, 0, 1, 2, 3]
+    )
+
+    price = models.FloatField()
+    number = models.IntegerField()
 
 # FUNCTIONS
 def creating_session(subsession):
