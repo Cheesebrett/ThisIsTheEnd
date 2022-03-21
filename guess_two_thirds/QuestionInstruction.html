@@ -1,4 +1,4 @@
-{{ block title }}Please answer the following Questions before continuing.{{ endblock }}
+{{ block title }}Some questions before Task I{{ endblock }}
 {{ block content }}
 
 {{ if player.treatmentvideo == 1 }}
@@ -44,7 +44,7 @@
         });
     </script>
 
-
+    {{ formfield 'attention_check_instructions' }}
 
 
 {{ else }}
@@ -86,6 +86,8 @@
             slider1.print(document.getElementById("sliders_here"));
         });
     </script>
+
+    {{ formfield 'attention_check_instructions' }}
 
 {{ endif }}
 
