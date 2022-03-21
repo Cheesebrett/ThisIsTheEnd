@@ -40,6 +40,23 @@
 
 {{ endif }}
 
+    <script>
+    var pageTimeElapsed = 0;
+    var pageTimerID = -1;
+
+    function pageTick() {
+      pageTimeElapsed++
+      document.getElementById("timeSpent").value = pageTimeElapsed;
+    }
+
+    window.onload = function() {
+      if(pageTimerID == -1){
+        pageTimerID = setInterval(pageTick, 1000);
+      }
+    };
+    </script>
+
+    <input type="hidden" name="timeSpent" id="timeSpent"/>
     {{ next_button }}
 
 {{ endblock }}

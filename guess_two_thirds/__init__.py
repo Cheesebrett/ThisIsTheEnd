@@ -79,6 +79,9 @@ class Player(BasePlayer):
 
     suggestions_box = models.StringField()
 
+    timeSpent = models.FloatField()
+
+
 # FUNCTIONS
 def creating_session(subsession):
     for player in subsession.get_players():
@@ -95,13 +98,12 @@ class Introduction(Page):
 
 
 class Instruction1PGGVideo(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['timeSpent']
 
 
 class Instruction1PGGText(Page):
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.treatmentvideo
+    pass
 
 
 class QuestionInstruction(Page):
