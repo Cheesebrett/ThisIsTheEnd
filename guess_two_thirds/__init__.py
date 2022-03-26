@@ -20,6 +20,7 @@ class C(BaseConstants):
     Correct_Instructions = 886
     payment_instructions = 1
 
+
 class Subsession(BaseSubsession):
     pass
 
@@ -39,26 +40,26 @@ class Player(BasePlayer):
     )
 
     internet = models.IntegerField(
-        label = "Was your internet connection stable enough to watch the video or did you have other trouble?",
+        label="Was your internet connection stable enough to watch the video or did you have other trouble?",
         choices=[
             [1, 'No problems watching the video'],
             [2, 'Some problems'],
             [3, 'Could not really watch'],
         ],
-        widget = widgets.RadioSelectHorizontal
+        widget=widgets.RadioSelectHorizontal
     )
 
     cognitiveload = models.IntegerField(
-        label = "How mentally demanding was understanding the Instruction for the Task? Just answer quickly and intuitively."
+        label="How mentally demanding was understanding the Instruction for the Task? Just answer quickly and intuitively."
     )
 
 
     attention_check_instructions = models.IntegerField(
-        min=0, max=10000, label = "What is my favorite number between 0 and 10000? (This is just to see if you read the Instructions)"
+        min=0, max=10000, label="What is my favorite number between 0 and 10000? (This is just to see if you read the Instructions)"
     )
 
     gender = models.IntegerField(
-        label = "What is your gender?",
+        label="What is your gender?",
         choices=[
             [1, 'Male'],
             [2, 'Female'],
@@ -67,7 +68,7 @@ class Player(BasePlayer):
     )
 
     age = models.IntegerField(
-        min = 0, max = 100, label = "What is your age?"
+        min=0, max=100, label="What is your age?"
     )
 
 
@@ -79,14 +80,19 @@ class Player(BasePlayer):
 
     suggestions_box = models.StringField()
 
-    timeSpent = models.FloatField()
+    timeSpentInstructions = models.FloatField()
+    timeSpentGuess = models.FloatField()
+    timeSpentCognitive = models.FloatField()
+
 
 
 # FUNCTIONS
 def creating_session(subsession):
     for player in subsession.get_players():
-        player.treatmentvideo = random.choice([True, False])
+        player.treatmentvideo = False
         print('set treatment video to', player.treatmentvideo)
+
+'random.choice([True, False])'
 
 def ppg_payment(player):
     player.ppg = 1000-50*(abs(player.guessx-(2/3*player.guessx*player.guessy/2))+abs(player.guessy-(2/3*player.guessx*player.guessy/2)))
@@ -99,7 +105,7 @@ class Introduction(Page):
 
 class Instruction1PGGVideo(Page):
     form_model = 'player'
-    form_fields = ['timeSpent']
+    form_fields = ['timeSpentInstructions']
 
 
 class Instruction1PGGText(Page):
@@ -126,8 +132,8 @@ class QuestionInstruction(Page):
 
 class Guess(Page):
     form_model = 'player'
-    form_fields = ['guessx', 'guessy']
-    timeout_seconds = 60
+    form_fields = ['guessx', 'guessy', 'timeSpentGuess']
+    timeout_seconds = 180
     timer_text = 'Time left to make a decision!'
 
     @staticmethod
@@ -144,4 +150,4 @@ class Results(Page):
     pass
 
 
-page_sequence = [Introduction, Instruction1PGGVideo, QuestionInstruction, Guess, Survey, Results]
+page_sequence = [Instruction1PGGVideo, QuestionInstruction, Guess, Survey, Results]

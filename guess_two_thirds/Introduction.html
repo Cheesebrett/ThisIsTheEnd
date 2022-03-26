@@ -1,12 +1,28 @@
 {{ block title }}Welcome to the Experiment!{{ endblock }}
 {{ block content }}
 
+
+    {{ if player.treatmentvideo }}
+    <p>
+        Please make sure you have working sound, and are in a quiet area.
+        Listen to the audio and answer the question to advance, otherwise you can't advance in the experiment and won't get paid.
+
+        placeholder audio
+    </p>
+
+        {{ formfield 'capture' }}
+
+    {{ else }}
     <p>
         First you must pass the english language test to be able to participate in the paid part of the experiment.
         Secondly you will play a guessing game for one round. Then you complete a cognitive test.
         At the end are some survey questions. You have to complete the whole experiment to be paid.
         On average you should take 20 minutes to complete the experiment. You can earn up to 0.50€ (~42₹).
     </p>
+
+        {{ formfield 'capture' }}
+
+    {{ end if }}
 
     {{ next_button }}
 

@@ -48,6 +48,25 @@
         });
     </script>
 
+
+    <script>
+    var pageTimeElapsed = 0;
+    var pageTimerID = -1;
+
+    function pageTick() {
+      pageTimeElapsed++
+      document.getElementById("timeSpentGuess").value = pageTimeElapsed;
+    }
+
+    window.onload = function() {
+      if(pageTimerID == -1){
+        pageTimerID = setInterval(pageTick, 1000);
+      }
+    };
+    </script>
+
+    <input type="hidden" name="timeSpentGuess" id="timeSpentGuess"/>
+
     {{ next_button }}
 
 {{ endblock }}
