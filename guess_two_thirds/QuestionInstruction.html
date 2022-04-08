@@ -1,20 +1,24 @@
 {{ block title }}Some questions before Task I{{ endblock }}
 {{ block content }}
-
+    <br>
+    <br>
+    <br>
 {{ if player.treatmentvideo == 1 }}
 
     {{ formfield 'internet' }}
 
-
+    <br>
+    <br>
+    <br>
     <style>
         .mgslider-wrapper {
             border-spacing: 10px;
         }
         .mgslider-limit {
             width: 10%;
-            min-width: 75px;
-            height: 80px;
-            margin: 100px;
+            min-width: 100px;
+            height: 40px;
+            margin: 40px;
             text-align: center;
             background: #eee;
             border: 1px solid #888;
@@ -30,8 +34,10 @@
     </style>
 
     {{ formfield_errors 'cognitiveload' }}
-    <p>How mentally demanding was understanding the Instruction? Just answer intuitively.</p>
 
+
+
+    <p>How mentally demanding was understanding the Instruction? Just click the slider and answer intuitively.</p>
     <div id="sliders_here"></div>
 
     <script src="{{ static 'mgslider.js' }}"></script>
@@ -44,6 +50,11 @@
         });
     </script>
 
+    <br>
+    <br>
+    <br>
+
+
     {{ formfield 'attention_check_instructions' }}
 
 
@@ -55,8 +66,8 @@
         }
         .mgslider-limit {
             width: 10%;
-            min-width: 75px;
-            height: 80px;
+            min-width: 40px;
+            height: 40px;
             margin: 100px;
             text-align: center;
             background: #eee;
@@ -73,7 +84,7 @@
     </style>
 
     {{ formfield_errors 'cognitiveload' }}
-    <p>How mentally demanding was understanding the Instruction? Just answer intuitively.</p>
+    <p>How mentally demanding was understanding the Instruction? Just click the slider and answer intuitively.</p>
 
     <div id="sliders_here"></div>
 

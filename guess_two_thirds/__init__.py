@@ -17,12 +17,23 @@ class C(BaseConstants):
     NAME_IN_URL = 'guess_two_thirds'
     Endowment = 1000
     Punishment = 50
-    Correct_Instructions = 886
-    payment_instructions = 1
+    Correct_Instructions = 752
+    payment_instructions = 200
 
 
 class Subsession(BaseSubsession):
     pass
+
+
+def creating_session(subsession):
+    treatments = itertools.cycle(
+        itertools.product([True, False], [True, False])
+    )
+    for player in subsession.get_players():
+        treatment = next(treatments)
+        # print('treatment is', treatment)
+        player.treatmentvideo = treatment[0]
+        player.survey = treatment[1]
 
 
 class Group(BaseGroup):
@@ -30,6 +41,8 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    survey = models.BooleanField()
+
     treatmentvideo = models.BooleanField()
 
     guessx = models.IntegerField(
@@ -53,50 +66,29 @@ class Player(BasePlayer):
         label="How mentally demanding was understanding the Instruction for the Task? Just answer quickly and intuitively."
     )
 
-
     attention_check_instructions = models.IntegerField(
-        min=0, max=10000, label="What is my favorite number between 0 and 10000? (This is just to see if you read the Instructions)"
+        min=0, max=10000, inital=1,
+        label="What is my favorite number between 0 and 10000? (This is just to see if you read the Instructions). If you don't know, just put in 1."
     )
 
-    gender = models.IntegerField(
-        label="What is your gender?",
-        choices=[
-            [1, 'Male'],
-            [2, 'Female'],
-            [3, 'Other'],
-        ],
-    )
-
-    age = models.IntegerField(
-        min=0, max=100, label="What is your age?"
-    )
-
-
-    math = models.IntegerField(widget=widgets.RadioSelect, label = "I am very good in math?", choices=[1, 2, 3, 4, 5])
-    english = models.IntegerField(widget=widgets.RadioSelect, label = "I speak English fluently?", choices=[1, 2, 3, 4, 5])
-    rhyme = models.IntegerField(widget=widgets.RadioSelect, label = "Tree rhymes with bee?", choices=[1, 2, 3, 4, 5])
-    familiarity = models.IntegerField(widget=widgets.RadioSelect, label = "I have been familiar with this task or a similar task before this experiment?", choices=[1, 2, 3, 4, 5])
-    offer_5 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4, 5])
-
-    suggestions_box = models.StringField()
+    pgg = models.FloatField()
 
     timeSpentInstructions = models.FloatField()
     timeSpentGuess = models.FloatField()
     timeSpentCognitive = models.FloatField()
 
 
-
 # FUNCTIONS
-def creating_session(subsession):
-    for player in subsession.get_players():
-        player.treatmentvideo = False
-        print('set treatment video to', player.treatmentvideo)
 
-'random.choice([True, False])'
 
 def ppg_payment(player):
-    player.ppg = 1000-50*(abs(player.guessx-(2/3*player.guessx*player.guessy/2))+abs(player.guessy-(2/3*player.guessx*player.guessy/2)))
+    player.participant.payoff += max(2000 - 50 * ((abs(player.guessx - 2 / 3 * (player.guessx + player.guessy) / 2)) + abs(
+        player.guessy - (2 / 3 * (player.guessx + player.guessy) / 2))), 0)
 
+
+
+#player.participant.payoff += 1000 - 50 * (abs(player.guessx - (2 / 3 * player.guessx * player.guessy / 2)) + abs(
+  #      player.guessy - (2 / 3 * player.guessx * player.guessy / 2)))
 
 # PAGES
 class Introduction(Page):
@@ -125,29 +117,31 @@ class QuestionInstruction(Page):
     @staticmethod
     def before_next_page(player, timeout_happened):
         if player.attention_check_instructions == C.Correct_Instructions:
-            player.payoff = C.payment_instructions
+            player.participant.payoff += C.payment_instructions
         else:
-            player.payoff = 0
+            player.participant.payoff += 0
 
 
 class Guess(Page):
     form_model = 'player'
     form_fields = ['guessx', 'guessy', 'timeSpentGuess']
-    timeout_seconds = 180
-    timer_text = 'Time left to make a decision!'
+    timeout_seconds = 5 * 60
+    timer_text = 'Time left to make a decision.'
 
     @staticmethod
     def before_next_page(player, timeout_happened):
         if timeout_happened:
             player.guessx = 100
             player.guessy = 100
+        ppg_payment(player)
 
 class Survey(Page):
     form_model = 'player'
     form_fields = ['gender', 'age', 'math', 'english', 'rhyme', 'familiarity', 'offer_5', 'suggestions_box']
 
+
 class Results(Page):
     pass
 
 
-page_sequence = [Instruction1PGGVideo, QuestionInstruction, Guess, Survey, Results]
+page_sequence = [Instruction1PGGVideo, QuestionInstruction, Guess, Results, Survey]
