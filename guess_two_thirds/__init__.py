@@ -135,13 +135,11 @@ class Guess(Page):
             player.guessy = 100
         ppg_payment(player)
 
-class Survey(Page):
-    form_model = 'player'
-    form_fields = ['gender', 'age', 'math', 'english', 'rhyme', 'familiarity', 'offer_5', 'suggestions_box']
+
 
 
 class Results(Page):
     pass
 
 
-page_sequence = [Instruction1PGGVideo, QuestionInstruction, Guess, Results, Survey]
+page_sequence = [Instruction1PGGVideo, QuestionInstruction, Guess, Results]

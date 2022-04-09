@@ -5,7 +5,7 @@ SESSION_CONFIGS = [
     dict(
         name='guess_two_thirds',
         display_name="Guess 2/3 of the Average",
-        app_sequence=['guess_two_thirds', 'survey_baseline'],
+        app_sequence=['captcha', 'guess_two_thirds', 'survey_baseline'],
         num_demo_participants=1,
     )
 ]
@@ -27,7 +27,7 @@ SESSION_FIELDS = []
 LANGUAGE_CODE = 'en'
 
 # e.g. EUR, GBP, CNY, JPY
-REAL_WORLD_CURRENCY_CODE = 'EURO'
+REAL_WORLD_CURRENCY_CODE = 'Dollar'
 USE_POINTS = True
 
 ROOMS = [
