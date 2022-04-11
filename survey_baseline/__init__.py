@@ -38,7 +38,9 @@ class Player(BasePlayer):
                                       choices=[1, 2, 3, 4, 5])
     offer_5 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4, 5])
 
-    suggestions_box = models.StringField()
+    suggestions_box = models.StringField(label="Do you have any recommendations or comments on this experiment?", blank=True)
+
+
 
 
 # FUNCTIONS
