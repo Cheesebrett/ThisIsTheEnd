@@ -1,7 +1,23 @@
 {{ block title }}
-    Task I
+    Main Task
 {{ endblock }}
 {{ block content }}
+
+        <style>
+        .otree-timer {
+            display: none;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            $('.otree-timer__time-left').on('update.countdown', function (event) {
+                if (event.offset.totalSeconds === 10) {
+                    $('.otree-timer').show();
+                }
+            });
+        });
+    </script>
 
     <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
@@ -32,7 +48,7 @@
 
     {{ formfield_errors 'guessx' }}
     {{ formfield_errors 'guessy' }}
-    <p>Please pick your two numbers and click the next button when you're done. Just click the blue bars to reveal the slider. You have timer!!! minutes to complete the task</p>
+    <p>Please pick your two numbers and click the next button when you're done. Just click the blue bars to reveal the slider. You have 5 minutes to complete the task.</p>
 
     <div id="sliders_here"></div>
 

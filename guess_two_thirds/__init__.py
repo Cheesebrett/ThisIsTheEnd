@@ -31,7 +31,6 @@ def creating_session(subsession):
     )
     for player in subsession.get_players():
         treatment = next(treatments)
-        # print('treatment is', treatment)
         player.treatmentvideo = treatment[0]
         player.survey = treatment[1]
 

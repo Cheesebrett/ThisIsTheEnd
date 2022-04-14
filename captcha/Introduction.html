@@ -5,7 +5,26 @@
     Welcome to this academic experiment
     {% endblock %}
 
+
+
 {% block content %}
+
+    <style>
+        .otree-timer {
+            display: none;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            $('.otree-timer__time-left').on('update.countdown', function (event) {
+                if (event.offset.totalSeconds === 10) {
+                    $('.otree-timer').show();
+                }
+            });
+        });
+    </script>
+
     <p><strong>Information</strong></p>
 
     <p>
