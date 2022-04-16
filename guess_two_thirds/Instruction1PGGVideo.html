@@ -28,7 +28,7 @@
     Calculation of the target number depends on your picked numbers.
     It is calculated as the mean of both numbers (X and Y), multiplied by two thirds: $$\text{target number} \; = \; \frac{2}{3} \left( \frac{X+Y}{2} \right) $$
     Your Payment depends on absolute distance of your numbers to the target number.
-    For each number, if the number is exactly equal to the target number, you receive 500 points.
+    For each number, if the number is exactly equal to the target number, you receive 1000 points.
     Should you not hit the target number exactly, some points will be deducted.
     For each absolute unit distance of your number to the target number, 50 points will be deducted:
     $$\text{payment for} \; X \; = \; 1000 − 50*|X − \text{target number}|$$ and $$\text{payment for} \; Y \; = \; 1000 − 50*|Y − \text{target number}|$$
@@ -62,6 +62,7 @@
     </script>
 
     <input type="hidden" name="timeSpentInstructions" id="timeSpentInstructions"/>
+    <br>
     {{ next_button }}
 
 {{ endblock }}
