@@ -1,14 +1,14 @@
 from os import environ
 
 
-SESSION_CONFIGS = [
-    dict(
-        name='guess_two_thirds',
-        display_name="Guess 2/3 of the Average",
-        app_sequence=['captcha', 'guess_two_thirds', 'survey_baseline', 'payment_info'],
-        num_demo_participants=1,
-    )
-]
+#SESSION_CONFIGS = [
+ #   dict(
+  #      name='guess_two_thirds',
+   #     display_name="Guess 2/3 of the Average",
+    #    app_sequence=['captcha', 'guess_two_thirds', 'survey_baseline', 'payment_info'],
+     #   num_demo_participants=1,
+    #)
+#]
 
 
 #app_sequence=['captcha', 'guess_two_thirds', 'survey_baseline'],
@@ -18,18 +18,18 @@ SESSION_CONFIGS = [
 # e.g. self.session.config['participation_fee']
 
 
-#SESSION_CONFIGS = [
- #   dict(
-  #      name='guess_two_thirds',
-   #     display_name="Guess 2/3 of the Average",
-    #    app_sequence=['survey_treatment'],
-     #   num_demo_participants=1,
-    #)
-#]
+SESSION_CONFIGS = [
+    dict(
+        name='guess_two_thirds',
+        display_name="Guess 2/3 of the Average",
+        app_sequence=['survey_baseline'],
+        num_demo_participants=1,
+    )
+]
 
 
 SESSION_CONFIG_DEFAULTS = dict(
-    real_world_currency_per_point=0.001, participation_fee=0.00, doc=""
+    real_world_currency_per_point=0.0005, participation_fee=0.00, doc=""
 )
 
 PARTICIPANT_FIELDS = []
