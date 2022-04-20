@@ -1,0 +1,31 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Captcha
+{% endblock %}
+
+{% block content %}
+    <p><strong>This is a bot protection task</strong></p>
+
+    <p>
+    To prove that you are a human player please answer the following question asked in the audio.
+    </p>
+
+
+     <audio controls>
+      <source src="{{ static 'Capture.wav' }}">
+    </audio>
+
+    {% formfield player.captcha %}
+
+
+
+    <p>
+    A wrong answer or a timeout will classify you as a bot and you will not be paid and the experiment ends.
+    If you click on the "Next" Button the instructions for the main task will be shown.
+    </p>
+    <br>
+    {% next_button %}
+
+{% endblock %}

@@ -2,7 +2,7 @@ from otree.api import *
 
 
 class C(BaseConstants):
-    NAME_IN_URL = 'survey_baseline'
+    NAME_IN_URL = 'survey_treatment'
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
 
@@ -16,7 +16,6 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    timeSpentSurveyBaseline = models.FloatField()
     gender = models.IntegerField(
         label="What is your gender?",
         choices=[
@@ -53,9 +52,9 @@ class Player(BasePlayer):
     )
 
     english = models.IntegerField(
-        widget = widgets.RadioSelect,
+        widget=widgets.RadioSelect,
         min=0, max=5,
-        choices = [1, 2, 3, 4, 5],
+        choices=[1, 2, 3, 4, 5],
         label="How good are you in English on a scale from 0 to 5? 5 is equivalent to a native speaker:"
     )
     experience = models.IntegerField(
@@ -73,7 +72,6 @@ class Player(BasePlayer):
                                   label='I have been familiar with a similar Task before this Experiment (the one where you had to pick two numbers)')
     offer_2 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4],
                                   label='I have been familiar with a similar "Matrix Task" before this Experiment')
-
 
     ABIC_1 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4], label='I dont "pay attention"')
     ABIC_2 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4], label='I am self-controlled')
@@ -95,7 +93,7 @@ class Player(BasePlayer):
     ABIC_13 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4], label='I am future oriented')
 
     experience2 = models.IntegerField(
-        widget= widgets.RadioSelect,
+        widget=widgets.RadioSelect,
         choices=[
             [1, '0-99'],
             [2, '100-299'],
@@ -106,8 +104,8 @@ class Player(BasePlayer):
         label="What is the total amount of HIITs you have done? Please select the answer one above your actual choice to prove you read this.",
     )
 
-
-    suggestions_box = models.StringField(label="Do you have any recommendations or comments on this experiment? No input is required.", blank=True)
+    suggestions_box = models.StringField(
+        label="Do you have any recommendations or comments on this experiment? No input is required.", blank=True)
 
     Oddity_1 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4],
                                    label='Is the following statement true?: bee rhymes with tree')
@@ -115,11 +113,52 @@ class Player(BasePlayer):
 
 # FUNCTIONS
 # PAGES
-class QuestionsBaseline(Page):
+class SurveyTreatment1(Page):
     form_model = 'player'
-    form_fields = ['offer_1', 'offer_2', 'gender', 'age', 'education', 'origin', 'english', 'experience', 'experience2', 'suggestions_box', 'ABIC_1', 'ABIC_2', 'ABIC_3', 'ABIC_4', 'ABIC_5', 'ABIC_6', 'ABIC_7', 'ABIC_8', 'Oddity_1', 'ABIC_9', 'ABIC_10', 'Oddity_2', 'ABIC_11', 'ABIC_12', 'ABIC_13']
+    form_fields = ['gender', 'age', 'education', 'origin']
 
 
+class SurveyTreatment2(Page):
+    form_model = 'player'
+    form_fields = ['english']
+
+class SurveyTreatment3(Page):
+    form_model = 'player'
+    form_fields = ['experience']
 
 
-page_sequence = [QuestionsBaseline]
+class SurveyTreatment4(Page):
+    form_model = 'player'
+    form_fields = ['offer_1', 'offer_2', 'Oddity_1']
+
+
+class SurveyTreatment5(Page):
+    form_model = 'player'
+    form_fields = ['ABIC_6', 'ABIC_1', 'ABIC_12']
+
+
+class SurveyTreatment6(Page):
+    form_model = 'player'
+    form_fields = ['ABIC_10', 'ABIC_11', 'Oddity_2']
+
+
+class SurveyTreatment7(Page):
+    form_model = 'player'
+    form_fields = ['ABIC_2', 'ABIC_4', 'ABIC_5', 'ABIC_13']
+
+
+class SurveyTreatment8(Page):
+    form_model = 'player'
+    form_fields = ['ABIC_7', 'ABIC_8', 'ABIC_9', 'ABIC_3']
+
+
+class SurveyTreatment9(Page):
+    form_model = 'player'
+    form_fields = ['experience2']
+
+class SurveyTreatment10(Page):
+    form_model = 'player'
+    form_fields = ['suggestions_box']
+
+page_sequence = [SurveyTreatment1, SurveyTreatment2, SurveyTreatment3, SurveyTreatment4, SurveyTreatment5, SurveyTreatment6, SurveyTreatment7, SurveyTreatment8, SurveyTreatment9, SurveyTreatment10]
+
