@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{{ block title }}Survey{{ endblock }}
+{{ block content }}
 
-</body>
-</html>
+    <div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="50"
+          aria-valuemin="0" aria-valuemax="100" style="width:0%">
+               <span>0% Complete</span>
+    </div>
+    </div>
+
+    <p>
+            {{ formfield 'gender' }}
+            {{ formfield 'age' }}
+            {{ formfield 'education' }}
+            {{ formfield 'origin' }}
+    </p>
+    <br>
+
+    {{ next_button }}
+
+{{ endblock }}

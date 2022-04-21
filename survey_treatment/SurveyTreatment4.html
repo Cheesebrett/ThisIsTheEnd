@@ -1,0 +1,37 @@
+
+{{ block title }}Survey{{ endblock }}
+{{ block content }}
+
+<div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="50"
+          aria-valuemin="0" aria-valuemax="100" style="width:25%">
+               <span>25% Complete</span>
+    </div>
+    </div>
+        <table class="table">
+        <tr>
+            <th style="width: 40%">Question</th>
+            <th style="width: 15%">Strongly Agree</th>
+            <th style="width: 15%">Agree</th>
+            <th style="width: 15%">Disagree</th>
+            <th style="width: 15%">Strongly Disagree</th>
+
+        </tr>
+
+            {{ for field in form }}
+                <tr>
+                    <th>{{ field.label }}</th>
+                    {{ for choice in field }}
+                        <td>{{ choice }}</td>
+                    {{ endfor }}
+                </tr>
+            {{ endfor }}
+        </table>
+
+    {{ next_button }}
+
+{{ endblock }}
+
+
+
+

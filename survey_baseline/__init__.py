@@ -56,7 +56,7 @@ class Player(BasePlayer):
         widget = widgets.RadioSelect,
         min=0, max=5,
         choices = [1, 2, 3, 4, 5],
-        label="How good are you in English on a scale from 0 to 5? 5 is equivalent to a native speaker:"
+        label="How good is your English on a scale from 0 to 5? 5 is equivalent to a native speaker:"
     )
     experience = models.IntegerField(
         widget=widgets.RadioSelect,
@@ -70,7 +70,7 @@ class Player(BasePlayer):
         label="What is the total amount of HIITs you have done?",
     )
     offer_1 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4],
-                                  label='I have been familiar with a similar Task before this Experiment (the one where you had to pick two numbers)')
+                                  label='I have been familiar with a similar Task before this Experiment (the one were you had to pick two numbers)')
     offer_2 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4],
                                   label='I have been familiar with a similar "Matrix Task" before this Experiment')
 

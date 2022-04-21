@@ -7,11 +7,50 @@
             {{ formfield 'gender' }}
             {{ formfield 'age' }}
             {{ formfield 'education' }}
-            {{ formfield 'english' }}
             {{ formfield 'origin' }}
             {{ formfield 'experience' }}
 
         </p>
+
+<style>
+        .mgslider-wrapper {
+            border-spacing: 10px;
+        }
+        .mgslider-limit {
+            width: 10%;
+            min-width: 75px;
+            height: 80px;
+            margin: 100px;
+            text-align: center;
+            background: #eee;
+            border: 1px solid #888;
+        }
+        .mgslider-limit, .mgslider-value {
+            font-variant-numeric: tabular-nums;
+        }
+        .mgslider-before {
+            height: 16px;
+            width: 100%;
+            background: #1e5bff;
+        }
+    </style>
+
+    {{ formfield_errors 'english' }}
+    <p>How good is your English on a scale from 0 to 5? 5 is equivalent to a native speaker:</p>
+
+    <div id="sliders_here"></div>
+
+    <script src="{{ static 'mgslider.js' }}"></script>
+
+    <script>
+        $(document).ready(function (event) {
+            slider1 = new mgslider("english", 0, 5, 1);
+            slider1.yourvalue = "Your English Skill";
+            slider1.print(document.getElementById("sliders_here"));
+
+        });
+    </script>
+
         <br>
         <table class="table">
                     <tr>

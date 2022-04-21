@@ -55,7 +55,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect,
         min=0, max=5,
         choices=[1, 2, 3, 4, 5],
-        label="How good are you in English on a scale from 0 to 5? 5 is equivalent to a native speaker:"
+        label="How good is your English on a scale from 0 to 5? 5 is equivalent to a native speaker:"
     )
     experience = models.IntegerField(
         widget=widgets.RadioSelect,
@@ -69,7 +69,7 @@ class Player(BasePlayer):
         label="What is the total amount of HIITs you have done?",
     )
     offer_1 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4],
-                                  label='I have been familiar with a similar Task before this Experiment (the one where you had to pick two numbers)')
+                                  label='I have been familiar with a similar Task before this Experiment (the one were you had to pick two numbers)')
     offer_2 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4],
                                   label='I have been familiar with a similar "Matrix Task" before this Experiment')
 
@@ -78,7 +78,7 @@ class Player(BasePlayer):
     ABIC_3 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4], label='I concentrate easily')
     ABIC_4 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4], label='I am a careful thinker')
     Oddity_2 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4],
-                                   label='I... select the leftmost answer please')
+                                   label='I... select the leftmost answer please to show you read this')
     ABIC_5 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4], label='I am a steady thinker')
     ABIC_6 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4], label='I do things without thinking')
     ABIC_7 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4],
@@ -101,7 +101,7 @@ class Player(BasePlayer):
             [4, '500-799'],
             [5, '800+'],
         ],
-        label="What is the total amount of HIITs you have done? Please select the answer one above your actual choice to prove you read this.",
+        label="What is the total amount of HIITs you have done? Please select the answer one above your actual prior choice to prove you read this.",
     )
 
     suggestions_box = models.StringField(
