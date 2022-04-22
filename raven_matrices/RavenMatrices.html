@@ -1,0 +1,256 @@
+{% extends "raven_matrices/RavenStyles.html" %}
+{% load staticfiles otree %}
+
+
+{% block content %}
+<!-- Tab navigation -->
+<ul class="nav nav-tabs fixed-top navbar-light bg-light justify-content-center" id="myTab" role="tablist">
+  <li class="nav-item tab_header">
+    <a class="nav-link active tab_element" id="raven1-tab" data-toggle="tab" href="#raven1" role="tab"
+       aria-controls="part1" onclick="topFunction()">Picture 1</a>
+  </li>
+  <li class="nav-item tab_header">
+    <a class="nav-link tab_element" id="raven2-tab" data-toggle="tab" href="#raven2" role="tab"
+       aria-controls="raven2" onclick="topFunction()">Picture 2</a>
+  </li>
+  <li class="nav-item tab_header">
+    <a class="nav-link tab_element" id="raven3-tab" data-toggle="tab" href="#raven3" role="tab"
+       aria-controls="raven3" onclick="topFunction()">Picture 3</a>
+  </li>
+   <li class="nav-item tab_header">
+    <a class="nav-link tab_element" id="raven4-tab" data-toggle="tab" href="#raven4" role="tab"
+       aria-controls="raven4" onclick="topFunction()">Picture 4</a>
+   </li>
+   <li class="nav-item tab_header">
+    <a class="nav-link tab_element" id="raven5-tab" data-toggle="tab" href="#raven5" role="tab"
+       aria-controls="raven5" onclick="topFunction()">Picture 5</a>
+   </li>
+    <li class="nav-item tab_header">
+    <a class="nav-link tab_element" id="raven6-tab" data-toggle="tab" href="#raven6" role="tab"
+       aria-controls="raven6" onclick="topFunction()">Picture 6</a>
+   </li>
+   <li class="nav-item tab_header">
+    <a class="nav-link tab_element" id="raven7-tab" data-toggle="tab" href="#raven7" role="tab"
+       aria-controls="raven7" onclick="topFunction()">Picture 7</a>
+   </li>
+   <li class="nav-item tab_header">
+    <a class="nav-link tab_element" id="raven8-tab" data-toggle="tab" href="#raven8" role="tab"
+       aria-controls="raven8" onclick="topFunction()">Picture 8</a>
+   </li>
+   <li class="nav-item tab_header">
+    <a class="nav-link tab_element" id="raven9-tab" data-toggle="tab" href="#raven9" role="tab"
+       aria-controls="raven9" onclick="topFunction()">Picture 9</a>
+   </li>
+   <li class="nav-item tab_header">
+    <a class="nav-link tab_element" id="raven10-tab" data-toggle="tab" href="#raven10" role="tab"
+       aria-controls="raven10" onclick="topFunction()">Picture 10</a>
+   </li>
+       <li class="nav-item tab_header">
+    <a class="nav-link tab_element" id="raven11-tab" data-toggle="tab" href="#raven11" role="tab"
+       aria-controls="raven11" onclick="topFunction()">Picture 11</a>
+   </li>
+   <li class="nav-item tab_header">
+    <a class="nav-link tab_element" id="raven12-tab" data-toggle="tab" href="#raven12" role="tab"
+       aria-controls="raven12" onclick="topFunction()">Picture 12</a>
+   </li>
+</ul>
+<br>
+
+<div class="tab-content" id="myTabContent">
+<!-- Tab content 1 -->
+  <div class="customInstructions tab-pane show active" id="raven1" role="tabpanel" aria-labelledby="raven1-tab">
+      <div class="customInstructions bg-transparent mainheader">
+         <h4 class="card-title font-weight-bold">Picture 1</h4>
+      </div>
+
+    <img src="{% static 'raven_matrices/apm03.png' %}" alt="Trulli" width="466" height="500" class="center">
+
+      <div class="raven_formfield" align="center">{% formfield player.raven_1 %}</div>
+
+      <p class="space"></p>
+
+    </div>
+
+ <!-- Tab content 2 -->
+    <div class="customInstructions tab-pane" id="raven2" role="tabpane2" aria-labelledby="raven2-tab">
+        <div class="customInstructions bg-transparent mainheader" >
+            <h4 class="card-title font-weight-bold">Picture 2</h4>
+        </div>
+
+    <img src="{% static 'raven_matrices/apm10.png' %}" alt="Trulli" width="466" height="500" class="center">
+
+      <div class="raven_formfield" align="center">{% formfield player.raven_2 %}</div>
+
+      <p class="space"></p>
+
+    </div>
+
+<!-- Tab content 3 -->
+    <div class="customInstructions tab-pane" id="raven3" role="tabpane2" aria-labelledby="raven3-tab">
+        <div class="customInstructions bg-transparent mainheader" >
+            <h4 class="card-title font-weight-bold">Picture 3</h4>
+        </div>
+
+    <img src="{% static 'raven_matrices/apm12.png' %}" alt="Trulli" width="466" height="500" class="center">
+
+      <div class="raven_formfield" align="center">{% formfield player.raven_3 %}</div>
+
+      <p class="space"></p>
+
+    </div>
+
+<!-- Tab content 4 -->
+    <div class="customInstructions tab-pane" id="raven4" role="tabpane2" aria-labelledby="raven4-tab">
+        <div class="customInstructions bg-transparent mainheader" >
+            <h4 class="card-title font-weight-bold">Picture 4</h4>
+        </div>
+
+    <img src="{% static 'raven_matrices/apm15.png' %}" alt="Trulli" width="466" height="500" class="center">
+
+      <div class="raven_formfield" align="center">{% formfield player.raven_4 %}</div>
+
+      <p class="space"></p>
+
+    </div>
+
+<!-- Tab content 5 -->
+    <div class="customInstructions tab-pane" id="raven5" role="tabpane2" aria-labelledby="raven5-tab">
+        <div class="customInstructions bg-transparent mainheader" >
+            <h4 class="card-title font-weight-bold">Picture 5</h4>
+        </div>
+
+    <img src="{% static 'raven_matrices/apm16.png' %}" alt="Trulli" width="466" height="500" class="center">
+
+      <div class="raven_formfield" align="center">{% formfield player.raven_5 %}</div>
+
+      <p class="space"></p>
+
+    </div>
+
+<!-- Tab content 6 -->
+    <div class="customInstructions tab-pane" id="raven6" role="tabpane2" aria-labelledby="raven6-tab">
+        <div class="customInstructions bg-transparent mainheader" >
+            <h4 class="card-title font-weight-bold">Picture 6</h4>
+        </div>
+
+    <img src="{% static 'raven_matrices/apm18.png' %}" alt="Trulli" width="466" height="500" class="center">
+
+      <div class="raven_formfield" align="center">{% formfield player.raven_6 %}</div>
+
+      <p class="space"></p>
+
+    </div>
+
+<!-- Tab content 7 -->
+    <div class="customInstructions tab-pane" id="raven7" role="tabpane2" aria-labelledby="raven7-tab">
+        <div class="customInstructions bg-transparent mainheader" >
+            <h4 class="card-title font-weight-bold">Picture 7</h4>
+        </div>
+
+    <img src="{% static 'raven_matrices/apm21.png' %}" alt="Trulli" width="466" height="500" class="center">
+
+      <div class="raven_formfield" align="center">{% formfield player.raven_7 %}</div>
+
+      <p class="space"></p>
+
+    </div>
+
+<!-- Tab content 8 -->
+    <div class="customInstructions tab-pane" id="raven8" role="tabpane2" aria-labelledby="raven8-tab">
+        <div class="customInstructions bg-transparent mainheader" >
+            <h4 class="card-title font-weight-bold">Picture 8</h4>
+        </div>
+
+    <img src="{% static 'raven_matrices/apm22.png' %}" alt="Trulli" width="466" height="500" class="center">
+
+      <div class="raven_formfield" align="center">{% formfield player.raven_8 %}</div>
+
+      <p class="space"></p>
+
+    </div>
+
+<!-- Tab content 9 -->
+    <div class="customInstructions tab-pane" id="raven9" role="tabpane2" aria-labelledby="raven9-tab">
+        <div class="customInstructions bg-transparent mainheader" >
+            <h4 class="card-title font-weight-bold">Picture 9</h4>
+        </div>
+
+    <img src="{% static 'raven_matrices/apm28.png' %}" alt="Trulli" width="466" height="500" class="center">
+
+      <div class="raven_formfield" align="center">{% formfield player.raven_9 %}</div>
+
+      <p class="space"></p>
+
+    </div>
+
+<!-- Tab content 10 -->
+    <div class="customInstructions tab-pane" id="raven10" role="tabpane2" aria-labelledby="raven10-tab">
+        <div class="customInstructions bg-transparent mainheader" >
+            <h4 class="card-title font-weight-bold">Picture 10</h4>
+        </div>
+
+    <img src="{% static 'raven_matrices/apm30.png' %}" alt="Trulli" width="466" height="500" class="center">
+
+      <div class="raven_formfield" align="center">{% formfield player.raven_10 %}</div>
+
+      <p class="space"></p>
+
+    </div>
+
+<!-- Tab content 11 -->
+    <div class="customInstructions tab-pane" id="raven11" role="tabpane2" aria-labelledby="raven11-tab">
+        <div class="customInstructions bg-transparent mainheader" >
+            <h4 class="card-title font-weight-bold">Picture 11</h4>
+        </div>
+
+    <img src="{% static 'raven_matrices/apm31.png' %}" alt="Trulli" width="466" height="500" class="center">
+
+      <div class="raven_formfield" align="center">{% formfield player.raven_11 %}</div>
+
+      <p class="space"></p>
+
+    </div>
+
+<!-- Tab content 12 -->
+    <div class="customInstructions tab-pane" id="raven12" role="tabpane2" aria-labelledby="raven12-tab">
+        <div class="customInstructions bg-transparent mainheader" >
+            <h4 class="card-title font-weight-bold">Picture 12</h4>
+        </div>
+
+    <img src="{% static 'raven_matrices/apm34.png' %}" alt="Trulli" width="466" height="500" class="center">
+
+      <div class="raven_formfield" align="center">{% formfield player.raven_12 %}</div>
+
+      <p class="space"></p>
+
+       <div align="center">
+        <button type="button" onclick ="submit()" class="otree-btn-next btn btn-primary next-button otree-next-button">
+           Finish and proceed to next step </button>
+        </div>
+
+    </div>
+
+    <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Back</button>
+    <button type="button" class="nexttab btn-primary btn next">Next</button>
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<!-- scripts for back and forth navigation -->
+<script src="{% static 'raven_matrices/prev_next_button.js' %}"></script>
+
+<!-- Including jQuery 3.3.1 breaks the countdown function somehow. Still looks fine when removing it, so what gives?
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossOrigin="anonymous"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossOrigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossOrigin="anonymous"></script>
+
+{% endblock %}

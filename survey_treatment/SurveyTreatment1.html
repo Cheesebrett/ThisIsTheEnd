@@ -9,6 +9,10 @@
     </div>
 
     <p>
+            Please note, the "next" button will appear on the following pages after a few seconds.
+    </p>
+
+    <p>
             {{ formfield 'gender' }}
             {{ formfield 'age' }}
             {{ formfield 'education' }}
@@ -16,6 +20,14 @@
     </p>
     <br>
 
-    {{ next_button }}
+
+    <script>
+        window.onload = function () {
+            setTimeout(function(){document.querySelector("#Next").style.visibility = "visible";}, 4000);
+
+        }
+    </script>
+
+    <button class="o-tree-btn-next btn btn-primary" id="Next" style="visibility:hidden;">Next</button>
 
 {{ endblock }}

@@ -78,7 +78,7 @@ class Player(BasePlayer):
     ABIC_3 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4], label='I concentrate easily')
     ABIC_4 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4], label='I am a careful thinker')
     Oddity_2 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4],
-                                   label='I... select the leftmost answer please to show you read this')
+                                   label='I was born before 1950')
     ABIC_5 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4], label='I am a steady thinker')
     ABIC_6 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4], label='I do things without thinking')
     ABIC_7 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4],
@@ -108,7 +108,7 @@ class Player(BasePlayer):
         label="Do you have any recommendations or comments on this experiment? No input is required.", blank=True)
 
     Oddity_1 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4],
-                                   label='Is the following statement true?: bee rhymes with tree')
+                                   label='Please select the leftmost option to show you read and understood this text')
 
 
 # FUNCTIONS

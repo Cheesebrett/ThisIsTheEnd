@@ -63,6 +63,13 @@
 
     <input type="hidden" name="timeSpentInstructions" id="timeSpentInstructions"/>
     <br>
-    {{ next_button }}
+    <script>
+        window.onload = function () {
+            setTimeout(function(){document.querySelector("#Next").style.visibility = "visible";}, 2*60000);
+
+        }
+    </script>
+
+    <button class="o-tree-btn-next btn btn-primary" id="Next" style="visibility:hidden;">Next</button>
 
 {{ endblock }}
