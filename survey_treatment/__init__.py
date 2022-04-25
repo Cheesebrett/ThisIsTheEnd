@@ -71,14 +71,13 @@ class Player(BasePlayer):
     offer_1 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4],
                                   label='I have been familiar with a similar Task before this Experiment (the one were you had to pick two numbers)')
     offer_2 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4],
-                                  label='I have been familiar with a similar "Matrix Task" before this Experiment')
+                                  label='I have been familiar with a similar "Puzzle Task" before this Experiment')
 
     ABIC_1 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4], label='I dont "pay attention"')
     ABIC_2 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4], label='I am self-controlled')
     ABIC_3 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4], label='I concentrate easily')
     ABIC_4 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4], label='I am a careful thinker')
-    Oddity_2 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4],
-                                   label='I was born before 1950')
+
     ABIC_5 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4], label='I am a steady thinker')
     ABIC_6 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4], label='I do things without thinking')
     ABIC_7 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4],
@@ -107,9 +106,21 @@ class Player(BasePlayer):
     suggestions_box = models.StringField(
         label="Do you have any recommendations or comments on this experiment? No input is required.", blank=True)
 
-    Oddity_1 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4],
+    Oddity_3 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4],
                                    label='Please select the leftmost option to show you read and understood this text')
+    Oddity_1 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4],
+                                   label='I was born before 1950')
+    Oddity_2 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4],
+                                   label='Is the following Statement true?: bee rhymes with tree')
 
+    self_evaluation = models.IntegerField(
+        widget=widgets.RadioSelect,
+        choices=[
+            [1, 'Yes, they are usable'],
+            [2, 'No, they shouldnt be considered'],
+        ],
+        label="Did you answer the questions appropriately, so that they can be used for analysis?",
+    )
 
 # FUNCTIONS
 # PAGES
@@ -139,18 +150,21 @@ class SurveyTreatment5(Page):
 
 class SurveyTreatment6(Page):
     form_model = 'player'
-    form_fields = ['ABIC_10', 'ABIC_11', 'Oddity_2']
+    form_fields = ['ABIC_2', 'ABIC_10', 'Oddity_2']
 
 
 class SurveyTreatment7(Page):
     form_model = 'player'
-    form_fields = ['ABIC_2', 'ABIC_4', 'ABIC_5', 'ABIC_13']
+    form_fields = ['ABIC_11', 'ABIC_4', 'ABIC_5']
 
 
 class SurveyTreatment8(Page):
     form_model = 'player'
-    form_fields = ['ABIC_7', 'ABIC_8', 'ABIC_9', 'ABIC_3']
+    form_fields = ['ABIC_13', 'ABIC_7', 'Oddity_3']
 
+class SurveyTreatment85(Page):
+    form_model = 'player'
+    form_fields = ['ABIC_8', 'ABIC_9', 'ABIC_3']
 
 class SurveyTreatment9(Page):
     form_model = 'player'
@@ -158,7 +172,7 @@ class SurveyTreatment9(Page):
 
 class SurveyTreatment10(Page):
     form_model = 'player'
-    form_fields = ['suggestions_box']
+    form_fields = ['suggestions_box', 'self_evaluation']
 
-page_sequence = [SurveyTreatment1, SurveyTreatment2, SurveyTreatment3, SurveyTreatment4, SurveyTreatment5, SurveyTreatment6, SurveyTreatment7, SurveyTreatment8, SurveyTreatment9, SurveyTreatment10]
+page_sequence = [SurveyTreatment1, SurveyTreatment2, SurveyTreatment3, SurveyTreatment4, SurveyTreatment5, SurveyTreatment6, SurveyTreatment7, SurveyTreatment8, SurveyTreatment85, SurveyTreatment9, SurveyTreatment10]
 

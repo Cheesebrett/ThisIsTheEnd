@@ -1,0 +1,41 @@
+{{ block title }}Survey{{ endblock }}
+{{ block content }}
+<div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="50"
+          aria-valuemin="0" aria-valuemax="100" style="width:80%">
+               <span>80% Complete</span>
+    </div>
+    </div>
+
+                    <table class="table">
+                    <tr>
+                        <th style="width: 40%">Question</th>
+                        <th style="width: 15%">Rarely/Never</th>
+                        <th style="width: 15%">Occasionally</th>
+                        <th style="width: 15%">Often</th>
+                        <th style="width: 15%">Almost Always/Always</th>
+
+                    </tr>
+
+                        {{ for field in form }}
+                            
+                            <tr>
+                                <th>{{ field.label }}</th>
+                                {{ for choice in field }}
+                                    <td>{{ choice }}</td>
+                                {{ endfor }}
+                            </tr>
+
+                        {{ endfor }}
+                    </table>
+
+    <script>
+        window.onload = function () {
+            setTimeout(function(){document.querySelector("#Next").style.visibility = "visible";}, 4000);
+
+        }
+    </script>
+
+    <button class="o-tree-btn-next btn btn-primary" id="Next" style="visibility:hidden;">Next</button>
+
+{{ endblock }}

@@ -1,24 +1,24 @@
 {% block title %}
-    Instructions
+    Instructions Puzzle Game
 {% endblock %}
 
 
-{% block content %}<p>
+{% block content %}
+<p>
 You will now play a pattern game, where you are asked to solve some puzzles.
     On the screen, you will see a set of abstract pictures with one of the pictures missing.
-    You need to choose a picture from the choices below to complete the pattern. </p>
+    You need to choose a picture from the choices below to complete the pattern, like in the example below.
+</p>
 <p>
-You will have a total of 8 minutes to complete 12 such puzzles. During these 8 minutes you will be able to move forwards and backwards and change your
-    answers using the buttons and tabs on your screen.</p>
+    <img src="{% static 'raven_matrices/example.jpg' %}" alt="Trulli" width="466" height="500" class="center">
 <p>
-Once the 8 minutes have passed, the pattern game will be automatically submitted and you
-    will proceed to the results. You can submit all your answers once you reach the
-    last puzzle by clicking on the button that will appear and be labelled "Finish and proceed to next step".</p>
 <p>
-At the end of the experiment, you will earn {{C.EARNING_PER_ITEM}} USD (approx. INR 20) per the number of correct answers you submitted.</p>
-
-<p> Make sure to keep note of the completion code that will be shown to you at the end of the experiment.
-    You will need to input this when submitting the HIT to be approved for payment. </p>
+In this example 8 is the correct answer. You will have a total of 4 minutes to complete 6 such puzzles. During these 4 minutes you will be able to move forwards and backwards and change your
+    answers using the buttons and tabs on your screen. The puzzles get more difficult.</p>
+<p>
+Once the 4 minutes have passed, the pattern game will be automatically submitted. You can submit on the last page you reach by clicking on the button that will appear and be labelled "Finish and proceed to next step".</p>
+<p>
+You will earn {{C.EARNING_PER_ITEM}} USD (approx. INR 20) per the number of correct answers you submitted.</p>
 
 <p class="space"></p>
 
