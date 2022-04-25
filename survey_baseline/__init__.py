@@ -16,6 +16,9 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    survey = models.BooleanField()
+    treatmentvideo = models.BooleanField()
+
     timeSpentSurveyBaseline = models.FloatField()
     gender = models.IntegerField(
         label="What is your gender?",
@@ -119,6 +122,11 @@ class QuestionsBaseline(Page):
     form_model = 'player'
     form_fields = ['offer_1', 'offer_2', 'gender', 'age', 'education', 'origin', 'english', 'experience', 'experience2', 'suggestions_box', 'ABIC_1', 'ABIC_2', 'ABIC_3', 'ABIC_4', 'ABIC_5', 'ABIC_6', 'ABIC_7', 'ABIC_8', 'Oddity_1', 'ABIC_9', 'ABIC_10', 'Oddity_2', 'ABIC_11', 'ABIC_12', 'ABIC_13']
 
+    @staticmethod
+    def app_after_this_page(participant, upcoming_apps):
+        print('upcoming_apps is', upcoming_apps)
+        if participant.survey == False:
+            return "payment_info"
 
 
 

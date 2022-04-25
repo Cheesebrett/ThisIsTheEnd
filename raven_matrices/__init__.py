@@ -22,7 +22,9 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    survey = models.BooleanField()
 
+    treatmentvideo = models.BooleanField()
 
     # Form fields for the Raven matrices (only track which answer a participant selected)
     raven_1 = models.IntegerField(
@@ -138,12 +140,11 @@ class RavenMatrices(Page):
             player.raven_12_correct = True
             player.participant.payoff += C.EARNING_PER_ITEM
 
+    @staticmethod
+    def app_after_this_page(participant, upcoming_apps):
+        print('upcoming_apps is', upcoming_apps)
+        if participant.survey:
+            return "survey_treatment"
 
 
-class Results(Page):
-    pass
-
-
-
-
-page_sequence = [Instructions, RavenMatrices, Results]
+page_sequence = [Instructions, RavenMatrices]

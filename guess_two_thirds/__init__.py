@@ -25,15 +25,24 @@ class Subsession(BaseSubsession):
     pass
 
 
+
+
+
 def creating_session(subsession):
     treatments = itertools.cycle(
         itertools.product([True, False], [True, False])
     )
-    for player in subsession.get_players():
+    for participant in subsession.get_players():
         treatment = next(treatments)
-        player.treatmentvideo = treatment[0]
-        player.survey = treatment[1]
+        participant.treatmentvideo = treatment[0]
+        participant.survey = treatment[1]
 
+"""def creating_session(subsession):
+    import itertools
+    treatmentvideo = itertools.cycle([True, False])
+    for player in subsession.get_players():
+        player.treatmentvideo = next(treatmentvideo)
+"""
 
 class Group(BaseGroup):
     pass
@@ -72,9 +81,9 @@ class Player(BasePlayer):
 
     pgg = models.FloatField()
 
-    timeSpentInstructions = models.FloatField()
-    timeSpentGuess = models.FloatField()
-    timeSpentCognitive = models.FloatField()
+    timeSpentInstructions = models.FloatField(blank = True)
+    timeSpentGuess = models.FloatField(blank = True)
+    timeSpentCognitive = models.FloatField(blank = True)
 
 
 # FUNCTIONS
@@ -95,12 +104,19 @@ class Introduction(Page):
 
 
 class Instruction1PGGVideo(Page):
+    @staticmethod
+    def is_displayed(player):
+        return player.treatmentvideo == True
     form_model = 'player'
     form_fields = ['timeSpentInstructions']
 
 
 class Instruction1PGGText(Page):
-    pass
+    @staticmethod
+    def is_displayed(player):
+        return player.treatmentvideo == False
+    form_model = 'player'
+    form_fields = ['timeSpentInstructions']
 
 
 class QuestionInstruction(Page):
@@ -137,8 +153,5 @@ class Guess(Page):
 
 
 
-class Results(Page):
-    pass
 
-
-page_sequence = [Instruction1PGGVideo, QuestionInstruction, Guess, Results]
+page_sequence = [Instruction1PGGVideo, Instruction1PGGText, QuestionInstruction, Guess]

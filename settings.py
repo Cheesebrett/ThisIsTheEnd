@@ -22,8 +22,8 @@ SESSION_CONFIGS = [
     dict(
         name='guess_two_thirds',
         display_name="Guess 2/3 of the Average",
-        app_sequence=['survey_treatment'],
-        num_demo_participants=1,
+        app_sequence=['guess_two_thirds', 'raven_matrices', 'survey_baseline', 'survey_treatment', 'payment_info'],
+        num_demo_participants=4,
     )
 ]
 
