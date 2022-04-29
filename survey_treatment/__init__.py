@@ -16,6 +16,10 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    survey = models.BooleanField()
+
+    treatmentvideo = models.BooleanField()
+
     gender = models.IntegerField(
         label="What is your gender?",
         choices=[

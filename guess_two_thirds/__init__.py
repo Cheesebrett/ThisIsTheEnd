@@ -25,14 +25,12 @@ class Subsession(BaseSubsession):
     pass
 
 
-
-
-
 def creating_session(subsession):
     treatments = itertools.cycle(
         itertools.product([True, False], [True, False])
     )
-    for participant in subsession.get_players():
+    for player in subsession.get_players():
+        participant = player.participant
         treatment = next(treatments)
         participant.treatmentvideo = treatment[0]
         participant.survey = treatment[1]
@@ -106,7 +104,7 @@ class Introduction(Page):
 class Instruction1PGGVideo(Page):
     @staticmethod
     def is_displayed(player):
-        return player.treatmentvideo == True
+        return player.participant.treatmentvideo
     form_model = 'player'
     form_fields = ['timeSpentInstructions']
 
@@ -114,7 +112,7 @@ class Instruction1PGGVideo(Page):
 class Instruction1PGGText(Page):
     @staticmethod
     def is_displayed(player):
-        return player.treatmentvideo == False
+        return player.participant.treatmentvideo == False
     form_model = 'player'
     form_fields = ['timeSpentInstructions']
 
@@ -124,7 +122,7 @@ class QuestionInstruction(Page):
     timeout_seconds = 5 * 60
     @staticmethod
     def get_form_fields(player):
-        if player.treatmentvideo:
+        if player.participant.treatmentvideo:
             return ['internet', 'cognitiveload', 'attention_check_instructions']
         else:
             return ['cognitiveload', 'attention_check_instructions']

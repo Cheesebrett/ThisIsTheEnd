@@ -23,7 +23,9 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    pass
+    survey = models.BooleanField()
+
+    treatmentvideo = models.BooleanField()
 
 
 # FUNCTIONS

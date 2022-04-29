@@ -1,5 +1,5 @@
 from otree.api import *
-
+import itertools
 author = 'Your name here'
 doc = """
 Simple implementation of 12-item Raven's progressive matrices. reduced to 6 items
@@ -23,8 +23,6 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     survey = models.BooleanField()
-
-    treatmentvideo = models.BooleanField()
 
     # Form fields for the Raven matrices (only track which answer a participant selected)
     raven_1 = models.IntegerField(
@@ -141,9 +139,9 @@ class RavenMatrices(Page):
             player.participant.payoff += C.EARNING_PER_ITEM
 
     @staticmethod
-    def app_after_this_page(participant, upcoming_apps):
+    def app_after_this_page(player, upcoming_apps):
         print('upcoming_apps is', upcoming_apps)
-        if participant.survey:
+        if player.participant.survey == True:
             return "survey_treatment"
 
 
