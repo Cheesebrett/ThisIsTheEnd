@@ -119,7 +119,6 @@ class Instruction1PGGText(Page):
 
 class QuestionInstruction(Page):
     form_model = 'player'
-    timeout_seconds = 5 * 60
     @staticmethod
     def get_form_fields(player):
         if player.participant.treatmentvideo:

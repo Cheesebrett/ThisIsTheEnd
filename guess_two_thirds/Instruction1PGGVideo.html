@@ -5,17 +5,44 @@
 
     <p>
         Please watch the following Video carefully. You can pause and go back as often as you like, forward skipping is not possible.
-        You should watch the whole video before advancing.
+        You have to watch the video before being able to advance.
     </p>
 
-    <video controls="true" poster="/images/w3html5.gif">
-        <source src="https://youtu.be/zifF0tKQJ58" type="video/mp4" />
-    </video>
-    <iframe width="1200" height="630" src="https://www.youtube.com/embed/zifF0tKQJ58" title="YouTube video player" onseeking="no" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
+      <!-- Video -->
+      <video id="video" controls="true" width="640" height="365">
+        <source src="{% static 'videoinstruction.mp4' %}" type="video/mp4">
+        <source src="{% static 'videoinstruction.webm' %}" type=”video/webm”>
+        <p>
+          Your browser doesn't support HTML5 video. Since you can’t continue, please leave the experiment.
+        </p>
 
-
+      </video>
+    <script>
+        var video = document.getElementById('video');
+        var supposedCurrentTime = 0;
+        video.addEventListener('timeupdate', function() {
+          if (!video.seeking) {
+            supposedCurrentTime = video.currentTime;
+          }
+        });
+        // prevent user from seeking
+        video.addEventListener('seeking', function() {
+          // guard agains infinite recursion:
+          // user seeks, seeking is fired, currentTime is modified, seeking is fired, current time is modified, ....
+          var delta = video.currentTime - supposedCurrentTime;
+          if (Math.abs(delta) > 0.01) {
+            console.log("Seeking is disabled");
+            video.currentTime = supposedCurrentTime;
+          }
+        });
+        // delete the following event handler if rewind is not required
+        video.addEventListener('ended', function() {
+          // reset state in order to allow for rewind
+            supposedCurrentTime = 0;
+        });
+    </script>
 
     <script>
     var pageTimeElapsed = 0;
@@ -35,12 +62,16 @@
 
     <input type="hidden" name="timeSpentInstructions" id="timeSpentInstructions"/>
 
-    <script>
-        window.onload = function () {
-            setTimeout(function(){document.querySelector("#Next").style.visibility = "visible";}, 2*60);
 
-        }
+    <script>
+        const video = document.querySelector('video');
+        video.addEventListener('ended', event) => {
+            const button = document.getElementById("Next");
+            button.style.visibility = 'visible';
+        });
     </script>
+    <br>
+    <br>
 
     <button class="o-tree-btn-next btn btn-primary" id="Next" style="visibility:hidden;">Next</button>
 
