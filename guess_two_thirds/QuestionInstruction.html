@@ -37,7 +37,7 @@
 
 
 
-    <p>How mentally demanding was understanding the Instruction? Just click the slider and answer intuitively.</p>
+    <p>How mentally demanding was understanding the Instruction? Just click the slider and answer intuitively. 10 corresponds to very difficult</p>
     <div id="sliders_here"></div>
 
     <script src="{{ static 'mgslider.js' }}"></script>
@@ -45,7 +45,7 @@
     <script>
         $(document).ready(function (event) {
             slider1 = new mgslider("cognitiveload", 1, 10, 1);
-            slider1.yourvalue = "Your intuitive choice";
+            slider1.yourvalue = "difficulty";
             slider1.print(document.getElementById("sliders_here"));
         });
     </script>
@@ -83,8 +83,12 @@
         }
     </style>
 
+    <br>
+
+
+
     {{ formfield_errors 'cognitiveload' }}
-    <p>How mentally demanding was understanding the Instruction? Just click the slider and answer intuitively.</p>
+    <p>How mentally demanding was understanding the Instruction? Just click the slider and answer intuitively. 10 corresponds to very difficult</p>
 
     <div id="sliders_here"></div>
 
@@ -93,11 +97,13 @@
     <script>
         $(document).ready(function (event) {
             slider1 = new mgslider("cognitiveload", 1, 10, 1);
-            slider1.yourvalue = "Your intuitive choice";
+            slider1.yourvalue = "difficulty";
             slider1.print(document.getElementById("sliders_here"));
         });
     </script>
-
+    <br>
+    <br>
+    <br>
     {{ formfield 'attention_check_instructions' }}
 
 {{ endif }}

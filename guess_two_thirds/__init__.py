@@ -74,7 +74,7 @@ class Player(BasePlayer):
 
     attention_check_instructions = models.IntegerField(
         min=0, max=10000, inital=1,
-        label="What is my favorite number between 0 and 10000? (This is just to see if you read the Instructions). If you don't know, just put in 1."
+        label="What is my favorite number? This is just to see if you read the Instructions, if you don't know, just put in 1."
     )
 
     pgg = models.FloatField()

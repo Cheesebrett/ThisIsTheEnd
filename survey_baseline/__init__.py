@@ -116,12 +116,19 @@ class Player(BasePlayer):
     Oddity_1 = models.IntegerField(widget=widgets.RadioSelect, choices=[1, 2, 3, 4],
                                    label='Please select the leftmost option to show you read the question')
 
-
+    self_evaluation = models.IntegerField(
+        widget=widgets.RadioSelect,
+        choices=[
+            [1, 'Yes, they are usable'],
+            [2, 'No, they shouldnt be considered'],
+        ],
+        label="Did you answer the questions appropriately, so that they can be used for analysis?",
+    )
 # FUNCTIONS
 # PAGES
 class QuestionsBaseline(Page):
     form_model = 'player'
-    form_fields = ['offer_1', 'offer_2', 'gender', 'age', 'education', 'origin', 'english', 'experience', 'experience2', 'suggestions_box', 'ABIC_1', 'ABIC_2', 'ABIC_3', 'ABIC_4', 'ABIC_5', 'ABIC_6', 'ABIC_7', 'ABIC_8', 'Oddity_1', 'ABIC_9', 'ABIC_10', 'Oddity_2', 'ABIC_11', 'ABIC_12', 'ABIC_13']
+    form_fields = ['offer_1', 'offer_2', 'gender', 'age', 'education', 'origin', 'english', 'experience', 'experience2', 'suggestions_box', 'ABIC_1', 'ABIC_2', 'ABIC_3', 'ABIC_4', 'ABIC_5', 'ABIC_6', 'ABIC_7', 'ABIC_8', 'Oddity_1', 'ABIC_9', 'ABIC_10', 'Oddity_2', 'ABIC_11', 'ABIC_12', 'ABIC_13', 'self_evaluation']
 
     @staticmethod
     def app_after_this_page(player, upcoming_apps):

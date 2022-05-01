@@ -23,10 +23,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    survey = models.BooleanField()
-
-    treatmentvideo = models.BooleanField()
-
+    pass
 
 # FUNCTIONS
 # PAGES
@@ -34,7 +31,7 @@ class PaymentInfo(Page):
     @staticmethod
     def vars_for_template(player: Player):
         participant = player.participant
-        return dict(redemption_code=participant.label or participant.code)
+        return dict(redemption_code=participant.label or participant.code, a = player.participant.payoff * 0.0005)
 
 
 page_sequence = [PaymentInfo]
