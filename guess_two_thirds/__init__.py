@@ -19,7 +19,7 @@ class C(BaseConstants):
     Punishment = 50
     Correct_Instructions = 752
     payment_instructions = 200
-
+    points = 0.005
 
 class Subsession(BaseSubsession):
     pass
@@ -59,7 +59,7 @@ class Player(BasePlayer):
     )
 
     internet = models.IntegerField(
-        label="Was your internet connection stable enough to watch the video or did you have other trouble?",
+        label="Could you watch the video without technical problems?",
         choices=[
             [1, 'No problems watching the video'],
             [2, 'Some problems'],
@@ -74,7 +74,7 @@ class Player(BasePlayer):
 
     attention_check_instructions = models.IntegerField(
         min=0, max=10000, inital=1,
-        label="What is my favorite number? This is just to see if you read the Instructions, if you don't know, just put in 1."
+        label="What is my favorite number? This is just to see if you read the Instructions, if you don’t know, just put in 1."
     )
 
     pgg = models.FloatField()
@@ -148,7 +148,8 @@ class Guess(Page):
         ppg_payment(player)
 
 
+class GuessResult(Page):
+    pass
 
 
-
-page_sequence = [Instruction1PGGVideo, Instruction1PGGText, QuestionInstruction, Guess]
+page_sequence = [Instruction1PGGVideo, Instruction1PGGText, QuestionInstruction, Guess, GuessResult]

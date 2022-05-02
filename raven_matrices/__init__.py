@@ -10,7 +10,7 @@ class C(BaseConstants):
     NAME_IN_URL = 'raven_matrices'
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
-    EARNING_PER_ITEM = 100
+    EARNING_PER_ITEM = 200
 
 
 class Subsession(BaseSubsession):

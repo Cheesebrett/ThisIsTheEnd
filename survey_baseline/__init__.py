@@ -120,7 +120,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect,
         choices=[
             [1, 'Yes, they are usable'],
-            [2, 'No, they shouldnt be considered'],
+            [2, 'No, they should not be considered'],
         ],
         label="Did you answer the questions appropriately, so that they can be used for analysis?",
     )

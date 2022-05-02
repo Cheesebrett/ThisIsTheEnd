@@ -29,7 +29,7 @@ SESSION_CONFIGS = [
 
 
 SESSION_CONFIG_DEFAULTS = dict(
-    real_world_currency_per_point=0.0005, participation_fee=0.00, doc=""
+    real_world_currency_per_point=0.0004, participation_fee=0.00, doc=""
 )
 
 PARTICIPANT_FIELDS = ['survey', 'treatmentvideo']
@@ -40,7 +40,7 @@ SESSION_FIELDS = []
 LANGUAGE_CODE = 'en'
 
 # e.g. EUR, GBP, CNY, JPY
-REAL_WORLD_CURRENCY_CODE = 'Dollar'
+REAL_WORLD_CURRENCY_CODE = 'USD'
 USE_POINTS = True
 
 ROOMS = [

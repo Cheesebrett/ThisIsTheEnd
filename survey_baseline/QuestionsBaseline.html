@@ -86,6 +86,7 @@
                             {{ if field.name != "ABIC_13" }}
 
                             {{ if field.name != "Oddity_2" }}
+                            {{ if field.name != "self_evaluation" }}
 
                             <tr>
                                 <th>{{ field.label }}</th>
@@ -93,6 +94,7 @@
                                     <td>{{ choice }}</td>
                                 {{ endfor }}
                             </tr>
+                            {{ endif }}
                             {{ endif }}
                             {{ endif }}
                             {{ endif }}
@@ -143,12 +145,14 @@
                             {{ if field.name != "offer_1" }}
                             {{ if field.name != "offer_2" }}
                             {{ if field.name != "Oddity_1" }}
+                            {{ if field.name != "self_evaluation" }}
                             <tr>
                                 <th>{{ field.label }}</th>
                                 {{ for choice in field }}
                                     <td>{{ choice }}</td>
                                 {{ endfor }}
                             </tr>
+                            {{ endif }}
                             {{ endif }}
                             {{ endif }}
                             {{ endif }}

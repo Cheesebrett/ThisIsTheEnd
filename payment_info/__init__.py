@@ -12,7 +12,7 @@ class C(BaseConstants):
     NAME_IN_URL = 'payment_info'
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
-
+    points = 0.0004
 
 class Subsession(BaseSubsession):
     pass
@@ -31,7 +31,7 @@ class PaymentInfo(Page):
     @staticmethod
     def vars_for_template(player: Player):
         participant = player.participant
-        return dict(redemption_code=participant.label or participant.code, a = player.participant.payoff * 0.0005)
+        return dict(redemption_code=participant.label or participant.code, a = player.participant.payoff * 0.0004)
 
 
 page_sequence = [PaymentInfo]

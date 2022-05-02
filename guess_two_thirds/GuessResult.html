@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Payment so far...
+{% endblock %}
+
+{% block content %}
+
+    <div class="panel panel-default" style="margin-bottom:10px">
+        <div class="panel-body">
+            <p><strong>Main Task Result:</strong></p>
+            <p>You made {{ player.participant.payoff }} points in the Task.</p>
+            <p>One point equals $0.0004.</p>
+
+        </div>
+    </div>
+    {{ if player.attention_check_instructions == C.Correct_Instructions }}
+    <p>You received an additional 200 points for the Instruction Question</p>
+    {{ endif }}
+    <p>In the next section you can also earn money.</p>
+    <br>
+{% next_button %}
+
+{% endblock %}

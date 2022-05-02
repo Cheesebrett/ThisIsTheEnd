@@ -59,7 +59,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect,
         min=0, max=5,
         choices=[1, 2, 3, 4, 5],
-        label="How good is your English on a scale from 0 to 5? 5 is equivalent to a native speaker:"
+        label="How good is your English on a scale from 0 to 5? 5 being equivalent to a native speaker:"
     )
     experience = models.IntegerField(
         widget=widgets.RadioSelect,
@@ -121,7 +121,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect,
         choices=[
             [1, 'Yes, they are usable'],
-            [2, 'No, they shouldnt be considered'],
+            [2, 'No, they should not be considered'],
         ],
         label="Did you answer the questions appropriately, so that they can be used for analysis?",
     )
